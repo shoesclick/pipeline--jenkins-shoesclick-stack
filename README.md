@@ -5,7 +5,7 @@ Projeto em Grovvy para executar pipeline de apis:
 ## Estrutura:
 
 ```
-src/: Classes dos projetos
+src : Classes dos projetos
 ```
 
 ```
