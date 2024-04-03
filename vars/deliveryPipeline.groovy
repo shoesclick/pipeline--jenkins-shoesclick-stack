@@ -43,38 +43,34 @@ def call(body) {
         gitHubTools.checkoutSCM()
 
         switch (params.package_panager){
-            case 'npm': {
+            case 'npm':
                 def npmTools = new NpmTools(this)
                 npmTools.install()
                 npmTools.test()
                 break
-            }
 
-            case 'maven': {
+            case 'maven':
                 def mavenTools = new MavenTools(this)
                 mavenTools.install()
                 mavenTools.test()
                 break
-            }
 
-            case 'python': {
+            case 'pip':
                 def pythonTools = new PythonTools(this)
                 pythonTools.install()
                 pythonTools.test()
                 break
-            }
 
-            case 'go': {
+            case 'go':
                 def goTools = new GoTools(this)
                 goTools.install()
                 goTools.test()
                 break
-            }
 
-            default: {
+            default:
                 currentBuild.result = 'FAILURE'
                 error('deliveryPipeline => Invalid value for param: package_manager\nValue: ' + params.package_manager)
-            }
+            
         }
 
         sonarTools.scanProject(parameterModel)
