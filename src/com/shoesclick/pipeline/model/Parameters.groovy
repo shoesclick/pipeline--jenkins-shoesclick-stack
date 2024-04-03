@@ -7,20 +7,18 @@ class Parameters{
     def sonarToken
     def projectName
     def workspaceJob
-    def awsAccountId
-    def awsEksRegion
-    def awsEcrRepository
+    def dckAccountId
+    def dckRepository
     def tagHash
 
-    Parameters(sonarServerUrl, sonarScannerPath, sonarToken,projectName,workspaceJob,awsAccountId,awsEksRegion,awsEcrRepository,tagHash){
+    Parameters(sonarServerUrl, sonarScannerPath, sonarToken, projectName, workspaceJob, dckAccountId, dckRepository, tagHash){
         this.sonarServerUrl = sonarServerUrl;
         this.sonarScannerPath = sonarScannerPath;
         this.sonarToken = sonarToken;
         this.projectName = projectName;
         this.workspaceJob = workspaceJob;
-        this.awsAccountId = awsAccountId;
-        this.awsEksRegion = awsEksRegion;
-        this.awsEcrRepository = awsEcrRepository;
+        this.dckAccountId = dckAccountId;
+        this.dckRepository = dckRepository;
         this.projectName = projectName;
         this.tagHash = tagHash;
     }

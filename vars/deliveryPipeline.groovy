@@ -5,7 +5,7 @@ import com.shoesclick.pipeline.languages.PythonTools
 import com.shoesclick.pipeline.languages.GoTools
 import com.shoesclick.pipeline.steps.GitHubTools
 import com.shoesclick.pipeline.steps.DockerTools
-import pipeline.steps.SonarTools
+import com.shoesclick.pipeline.steps.SonarTools
 import com.shoesclick.pipeline.steps.KubernatesTools
 import com.shoesclick.pipeline.model.Parameters
 
@@ -16,7 +16,7 @@ def call(body) {
     def gitHubTools = new GitHubTools(this)
     def dockerTools = new DockerTools(this)
     def sonarTools = new SonarTools(this)
-    def kubernat0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000esTools = new KubernatesTools(this)
+    def kubernatesTools = new KubernatesTools(this)
 
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = params
@@ -35,9 +35,8 @@ def call(body) {
                 'sqp_5a70f9ae87771a7fe959d1df084fb8e45a8b4b68',
                 env.JOB_NAME,
                 env.WORKSPACE,
-                env.AWS_ACCOUNT_ID,
-                env.AWS_EKS_REGION,
-                env.AWS_ECR_REPOSITORY,
+                env.DCK_ACCOUNT_ID,
+                env.DCK_REPOSITORY,
                 gitHubTools.getRevision()
         )
 
