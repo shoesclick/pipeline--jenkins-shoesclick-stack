@@ -50,6 +50,16 @@ Efetua deploy no Kubernetes.
 
 ## Configuração:
 
+#### Gerenciar Jenkins >> Credentials >> System >> Global credentials (unrestricted)
+
+Definir:
+
+* **Scope: Global**
+* **ID: <definir um id ex: Github-dev>**
+* **Username: git**
+* **Username: git**
+* **Private Key: <Inserir private key SSH> "**
+
 
 #### Gerenciar Jenkins >> Configurar Sistema (System) >> Global Pipeline Libraries
 
