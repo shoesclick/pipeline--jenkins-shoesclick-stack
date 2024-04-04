@@ -1,24 +1,28 @@
 package com.shoesclick.pipeline.languages
 
+import com.shoesclick.pipeline.strategy.SystemCmd
+
 class NpmTools implements LanguageTools {
-    def steps
-    NpmTools(steps) { this.steps = steps }
+
+    def systemCmd
+
+    NpmTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
     def install() {
-        steps.stage('Get Dependencies') {
-            steps.sh "npm install"
+        systemCmd.steps().stage('Get Dependencies') {
+            systemCmd.cmd("npm install")
         }
     }
 
     def build() {
-        steps.stage('NPM Build') {
-            steps.sh "npm run swagger-autogen"
+        systemCmd.steps().stage('NPM Build') {
+            systemCmd.cmd("npm run swagger-autogen")
         }
     }
 
     def test() {
-        steps.stage('NPM Test') {
-            steps.sh "npm test"
+        systemCmd.steps().stage('NPM Test') {
+            systemCmd.cmd("npm test")
         }
     }
 }

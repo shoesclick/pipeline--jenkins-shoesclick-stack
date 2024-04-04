@@ -1,25 +1,28 @@
 package com.shoesclick.pipeline.languages
 
-class GoTools implements LanguageTools {
-    def steps
+import com.shoesclick.pipeline.strategy.SystemCmd
 
-    GoTools(steps) { this.steps = steps }
+class GoTools implements LanguageTools {
+
+    def systemCmd
+
+    GoTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
     def install() {
-        steps.stage('Get Dependencies') {
-            steps.sh "go download"
+        systemCmd.steps().stage('Get Dependencies') {
+            systemCmd.cmd("go download")
         }
     }
 
     def build() {
-        steps.stage('GO Build') {
-            steps.sh "go build"
+        systemCmd.steps().stage('GO Build') {
+            systemCmd.cmd("go build")
         }
     }
 
     def test() {
-        steps.stage('GO Test') {
-            steps.sh "go test"
+        systemCmd.steps().stage('GO Test') {
+            systemCmd.cmd("go test")
         }
     }
 }

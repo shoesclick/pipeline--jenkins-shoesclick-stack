@@ -1,24 +1,28 @@
 package com.shoesclick.pipeline.languages
 
+import com.shoesclick.pipeline.strategy.SystemCmd
+
 class MavenTools implements LanguageTools {
-    def steps
-    MavenTools(steps) { this.steps = steps }
+
+    def systemCmd
+    
+    MavenTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
     def install() {
-        steps.stage('Get Dependencies') {
-            steps.sh "mvn clean install"
+        systemCmd.steps().stage('Get Dependencies') {
+            systemCmd.cmd("mvn clean install")
         }
     }
 
     def build() {
-        steps.stage('Maven Build') {
-            steps.sh "mvn clean package"
+        systemCmd.steps().stage('Maven Build') {
+            systemCmd.cmd("mvn clean package")
         }
     }
 
     def test() {
-        steps.stage('Maven Test') {
-            steps.sh "mvn clean package"
+        systemCmd.steps().stage('Maven Test') {
+            systemCmd.cmd("mvn clean package")
         }
     }
 }

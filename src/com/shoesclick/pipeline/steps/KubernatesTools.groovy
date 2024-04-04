@@ -1,24 +1,25 @@
 package com.shoesclick.pipeline.steps
 
 import com.shoesclick.pipeline.model.Parameters
+import com.shoesclick.pipeline.strategy.SystemCmd
 import com.shoesclick.pipeline.utils.FileUtils
 
 class KubernatesTools {
 
-    def steps
+    def systemCmd
 
-    KubernatesTools(step) {this.steps = step}
+    KubernatesTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
-    def deployEKS(Parameters model){
-        steps.stage('Deploy') {
+    def deployEKS(Parameters model) {
+        systemCmd.steps().stage('Deploy') {
             replaceDeploymentFile(model)
-            steps.dir("k8s") {
-                steps.sh 'kubectl apply -k .'
+            systemCmd.steps().dir("k8s") {
+                systemCmd.cmd('kubectl apply -k .')
             }
         }
     }
 
-    def replaceDeploymentFile(Parameters model){
+    def replaceDeploymentFile(Parameters model) {
         def fileUtils = new FileUtils("${model.workspaceJob}/k8s/deployment.yaml")
         fileUtils.replaceDeploymentYaml(model)
     }
