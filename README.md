@@ -32,6 +32,7 @@ Efetua deploy no EKS.
 ```
 Gerenciar Jenkins >> Configurar Sistema (System) >> Global Pipeline Libraries
 
+```
 Definir:
 
 * ***Name: jenkinspipelinelib - Será utilizado para importar no arquivo Jenkinsfile***
@@ -41,7 +42,6 @@ Definir:
 * ***Project Repository: git@github.com:shoesclick/pipeline--jenkins-shoesclick-stack.git - Utilzando o SSH***
 * ***Credential: git***
 
-```
 
 ## EX: 
 
