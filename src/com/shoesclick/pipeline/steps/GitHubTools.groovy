@@ -17,7 +17,7 @@ class GitHubTools {
             systemCmd.steps().checkout([
                     $class                           : 'GitSCM',
                     branches                         : systemCmd.steps().scm.branches,
-                    doGenerateSubmoduleConfigurations: steps.scm.doGenerateSubmoduleConfigurations,
+                    doGenerateSubmoduleConfigurations: systemCmd.steps().scm.doGenerateSubmoduleConfigurations,
                     extensions                       : systemCmd.steps().scm.extensions,
                     userRemoteConfigs                : systemCmd.steps().scm.userRemoteConfigs
             ]);
