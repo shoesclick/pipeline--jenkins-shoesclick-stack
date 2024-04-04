@@ -29,6 +29,8 @@ def call(body) {
 
     node {
 
+        gitHubTools.checkoutSCM()
+
         def parameterModel = new Parameters(
                 env.SONAR_SERVER_URL,
                 env.SONAR_SCANNER_PATH,
@@ -40,7 +42,7 @@ def call(body) {
                 gitHubTools.getRevision()
         )
 
-        gitHubTools.checkoutSCM()
+
 
         switch (params.package_panager){
             case 'npm':
