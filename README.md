@@ -19,10 +19,13 @@ Golang: (https://go.dev/dl/)
 
 Docker: (https://www.docker.com/products/docker-desktop/)
 
-Kubernetes: (https://kubernetes.io/releases/download/) 
+Kubernetes: (https://kubernetes.io/releases/download/)
+
+GWAK (https://gnuwin32.sourceforge.net/packages/gawk.htm) - Somente para Windows
 ```
 
 OBS: O Docker desktop já vem com o Kubernetes instalado.
+     Configurar variaveis de Ambiente para o Java, Maven e Gawk
 
 ## Estrutura:
 
