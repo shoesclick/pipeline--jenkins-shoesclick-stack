@@ -20,9 +20,9 @@ Compila e testa o projeto
 
 Gera uma imagem no Docker
 
-efetua um Push no ECR.
+efetua um Push no No repositório de imagem.
 
-Efetua deploy no EKS.
+Efetua deploy no Kubernetes.
 
 ```
 
