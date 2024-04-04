@@ -13,7 +13,7 @@ class KubernatesTools {
         steps.stage('Deploy') {
             replaceDeploymentFile(model)
             steps.dir("k8s") {
-                steps.sh 'kubectl apply -k .'
+                steps.bat 'kubectl apply -k .'
             }
         }
     }

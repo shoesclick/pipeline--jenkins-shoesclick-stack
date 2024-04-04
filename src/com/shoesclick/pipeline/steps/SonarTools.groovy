@@ -11,7 +11,7 @@ class SonarTools {
     def scanProject(Parameters model) {
 
         steps.stage('SonarQube analysis') {
-            steps.sh "${model.sonarScannerPath}/sonar-scanner -Dsonar.projectKey=${model.projectName} -Dsonar.sources=${model.workspaceJob} -Dsonar.host.url=${model.sonarServerUrl} -Dsonar.login=${model.sonarToken}"
+            steps.bat "${model.sonarScannerPath}/sonar-scanner -Dsonar.projectKey=${model.projectName} -Dsonar.sources=${model.workspaceJob} -Dsonar.host.url=${model.sonarServerUrl} -Dsonar.login=${model.sonarToken}"
         }
     }
 }

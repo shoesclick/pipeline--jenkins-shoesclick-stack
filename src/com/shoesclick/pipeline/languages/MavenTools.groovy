@@ -6,19 +6,19 @@ class MavenTools implements LanguageTools {
 
     def install() {
         steps.stage('Get Dependencies') {
-            steps.sh "mvn clean install"
+            steps.bat "mvn clean install"
         }
     }
 
     def build() {
         steps.stage('Maven Build') {
-            steps.sh "mvn clean package"
+            steps.bat "mvn clean package"
         }
     }
 
     def test() {
         steps.stage('Maven Test') {
-            steps.sh "mvn clean package"
+            steps.bat "mvn clean package"
         }
     }
 }

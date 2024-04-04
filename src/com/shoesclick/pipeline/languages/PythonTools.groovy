@@ -6,20 +6,20 @@ class PythonTools implements LanguageTools {
 
     def install() {
         steps.stage('Get Dependencies') {
-            steps.sh "pip install -r requirements.txt"
+            steps.bat "pip install -r requirements.txt"
         }
     }
 
     def build() {
         steps.stage('Python Build') {
-            steps.sh "python3 manage.py makemigrations"
-            steps.sh "python3 manage.py migrate"
+            steps.bat "python3 manage.py makemigrations"
+            steps.bat "python3 manage.py migrate"
         }
     }
 
     def test() {
         steps.stage('Python Test') {
-            steps.sh "python3 manage.py test"
+            steps.bat "python3 manage.py test"
         }
     }
 }

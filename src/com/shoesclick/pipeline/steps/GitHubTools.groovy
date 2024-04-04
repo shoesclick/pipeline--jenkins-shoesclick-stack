@@ -24,6 +24,6 @@ class GitHubTools{
     }
 
     def getRevision(){
-        return steps.sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+        return steps.bat (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
     }
 }

@@ -7,19 +7,19 @@ class GoTools implements LanguageTools {
 
     def install() {
         steps.stage('Get Dependencies') {
-            steps.sh "go download"
+            steps.bat "go download"
         }
     }
 
     def build() {
         steps.stage('GO Build') {
-            steps.sh "go build"
+            steps.bat "go build"
         }
     }
 
     def test() {
         steps.stage('GO Test') {
-            steps.sh "go test"
+            steps.bat "go test"
         }
     }
 }
