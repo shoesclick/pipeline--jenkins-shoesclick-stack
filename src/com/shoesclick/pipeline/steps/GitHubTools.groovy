@@ -1,19 +1,20 @@
 package com.shoesclick.pipeline.steps
 
+import com.shoesclick.pipeline.strategy.SystemCmd
+
 class GitHubTools{
 
-    def steps
+    def systemCmd
 
-    GitHubTools(steps){this.steps = steps}
-
+    GitHubTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
 
     def checkoutSCM(){
 
 
-        steps.stage('Checkout SCM') {
+        systemCmd.steps().stage('Checkout SCM') {
 
-            steps.checkout([
+            systemCmd.steps().checkout([
                     $class: 'GitSCM',
                     branches: steps.scm.branches,
                     doGenerateSubmoduleConfigurations: steps.scm.doGenerateSubmoduleConfigurations,
@@ -24,6 +25,6 @@ class GitHubTools{
     }
 
     def getRevision(){
-        return steps.bat (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+        return  systemCmd.cmd(script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
     }
 }

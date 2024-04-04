@@ -8,15 +8,18 @@ import com.shoesclick.pipeline.steps.DockerTools
 import com.shoesclick.pipeline.steps.SonarTools
 import com.shoesclick.pipeline.steps.KubernatesTools
 import com.shoesclick.pipeline.model.Parameters
+import com.shoesclick.pipeline.strategy.WinCmd
 
 def call(body) {
 
     def params = [:]
 
-    def gitHubTools = new GitHubTools(this)
-    def dockerTools = new DockerTools(this)
-    def sonarTools = new SonarTools(this)
-    def kubernatesTools = new KubernatesTools(this)
+    def sysCmd = new WinCmd(this)
+
+    def gitHubTools = new GitHubTools(sysCmd)
+    def dockerTools = new DockerTools(sysCmd)
+    def sonarTools = new SonarTools(sysCmd)
+    def kubernatesTools = new KubernatesTools(sysCmd)
 
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = params
@@ -44,25 +47,25 @@ def call(body) {
 
         switch (params.package_manager){
             case "npm":
-                def npmTools = new NpmTools(this)
+                def npmTools = new NpmTools(sysCmd)
                 npmTools.install()
                 npmTools.test()
                 break
 
             case "maven":
-                def mavenTools = new MavenTools(this)
+                def mavenTools = new MavenTools(sysCmd)
                 mavenTools.install()
                 mavenTools.test()
                 break
 
             case "pip":
-                def pythonTools = new PythonTools(this)
+                def pythonTools = new PythonTools(sysCmd)
                 pythonTools.install()
                 pythonTools.test()
                 break
 
             case "go":
-                def goTools = new GoTools(this)
+                def goTools = new GoTools(sysCmd)
                 goTools.install()
                 goTools.test()
                 break

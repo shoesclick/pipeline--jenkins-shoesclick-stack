@@ -1,25 +1,29 @@
 package com.shoesclick.pipeline.languages
 
+import com.shoesclick.pipeline.strategy.SystemCmd
+
 class PythonTools implements LanguageTools {
-    def steps
-    PythonTools(steps) { this.steps = steps }
+
+    def systemCmd
+
+    PythonTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
     def install() {
-        steps.stage('Get Dependencies') {
-            steps.bat "pip install -r requirements.txt"
+        systemCmd.steps().stage('Get Dependencies') {
+            systemCmd.cmd("pip install -r requirements.txt")
         }
     }
 
     def build() {
-        steps.stage('Python Build') {
-            steps.bat "python3 manage.py makemigrations"
-            steps.bat "python3 manage.py migrate"
+        systemCmd.steps().stage('Python Build') {
+            systemCmd.cmd("python3 manage.py makemigrations")
+            systemCmd.cmd("python3 manage.py migrate")
         }
     }
 
     def test() {
-        steps.stage('Python Test') {
-            steps.bat "python3 manage.py test"
+        systemCmd.steps().stage('Python Test') {
+            systemCmd.cmd("python3 manage.py test")
         }
     }
 }
