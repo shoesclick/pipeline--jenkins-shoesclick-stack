@@ -29,7 +29,7 @@ class DockerTools {
      }
 
     def loginDockerHub(Parameters model){
-        steps.bat "docker login -u claytonmorais --password-stdin dckr_pat_9pUXD7nPDpCgml0qBhJNSitz8u0"
+        steps.bat "docker login docker.io"
     }
 
     def createTag(Parameters model){
