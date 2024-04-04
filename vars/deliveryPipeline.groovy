@@ -42,7 +42,7 @@ def call(body) {
                 gitHubTools.getRevision()
         )       
 
-        switch (params.package_panager){
+        switch (params.package_manager){
             case 'npm':
                 def npmTools = new NpmTools(this)
                 npmTools.install()
