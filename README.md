@@ -5,9 +5,9 @@ Projeto em Grovvy para executar pipeline de apis:
 ### Pré requisitos
 
 ```
-Java 17 : ([https://www.oracle.com/br/java/technologies/javase/jdk17-archive-downloads.html]);
+Jenkins: (https://www.jenkins.io/download/)
 
-Spring Boot na versão 3.1.9:  (https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/3.1.9);
+Java 17 : ([https://www.oracle.com/br/java/technologies/javase/jdk17-archive-downloads.html]);
 
 Maven 3.9.5: (https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz)
 
