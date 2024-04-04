@@ -42,6 +42,8 @@ def call(body) {
                 gitHubTools.getRevision()
         )
 
+        println("STACK: " + params.package_panager)
+
         switch (params.package_panager){
             case "npm":
                 def npmTools = new NpmTools(this)
