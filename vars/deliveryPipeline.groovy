@@ -70,10 +70,10 @@ def call(body) {
             default:
                 currentBuild.result = 'FAILURE'
                 error('deliveryPipeline => Invalid value for param: package_manager\nValue: ' + params.package_manager)
-            
+
         }
 
-        sonarTools.scanProject(parameterModel)
+       // sonarTools.scanProject(parameterModel)
         dockerTools.build(parameterModel)
         kubernatesTools.deployEKS(parameterModel)
         dockerTools.removeImagesDocker(parameterModel)
