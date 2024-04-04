@@ -45,25 +45,25 @@ def call(body) {
 
 
         switch (params.package_panager){
-            case 'npm':
+            case "npm":
                 def npmTools = new NpmTools(this)
                 npmTools.install()
                 npmTools.test()
                 break
 
-            case 'maven':
+            case "maven":
                 def mavenTools = new MavenTools(this)
                 mavenTools.install()
                 mavenTools.test()
                 break
 
-            case 'pip':
+            case "pip":
                 def pythonTools = new PythonTools(this)
                 pythonTools.install()
                 pythonTools.test()
                 break
 
-            case 'go':
+            case "go":
                 def goTools = new GoTools(this)
                 goTools.install()
                 goTools.test()
