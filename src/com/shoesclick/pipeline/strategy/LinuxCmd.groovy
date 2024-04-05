@@ -6,7 +6,7 @@ class LinuxCmd implements SystemCmd {
     LinuxCmd(steps) { this.steps = steps }
 
     def cmd(command) {
-        steps.sh command
+        steps.sh(command)
     }
 
     def steps() {

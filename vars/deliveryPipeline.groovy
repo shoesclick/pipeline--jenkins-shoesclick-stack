@@ -47,6 +47,7 @@ def call(body) {
 
         println("BRANCH: ${this.scm.branches}")
         println("PARAMETERS: ${parameterModel.dckAccountId} , ${parameterModel.dckRepository}, ${parameterModel.projectName} , ${parameterModel.workspaceJob}, ${parameterModel.tagHash}")
+        println("GITHASH: ${parameterModel.tagHash}")
 
         switch (params.package_manager){
             case "npm":

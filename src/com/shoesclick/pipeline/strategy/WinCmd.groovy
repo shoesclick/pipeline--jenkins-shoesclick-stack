@@ -7,7 +7,7 @@ class WinCmd implements SystemCmd {
     WinCmd(steps) { this.steps = steps }
 
     def cmd(command) {
-        steps.bat command
+        steps.bat(command)
     }
 
     def steps(){
