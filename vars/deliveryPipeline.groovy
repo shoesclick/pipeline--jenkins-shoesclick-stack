@@ -45,6 +45,8 @@ def call(body) {
                 gitHubTools.getRevision()
         )
 
+        println("PARAMETERS: ${parameterModel.dckAccountId} , ${parameterModel.dckRepository}, ${parameterModel.projectName} , ${parameterModel.workspaceJob}, ${parameterModel.tagHash}")
+
         switch (params.package_manager){
             case "npm":
                 def npmTools = new NpmTools(sysCmd)
