@@ -34,18 +34,22 @@ def call(body) {
 
         gitHubTools.checkoutSCM()
 
-        def parameterModel = new Parameters(
-                env.SONAR_SERVER_URL,
-                env.SONAR_SCANNER_PATH,
-                'sqp_5a70f9ae87771a7fe959d1df084fb8e45a8b4b68',
-                env.JOB_NAME,
-                env.WORKSPACE,
-                env.DCK_ACCOUNT_ID,
-                env.DCK_REPOSITORY,
-                gitHubTools.getRevision()
-        )
+        script {
 
-        println("GITHASH: ${gitHubTools.getRevision()}")
+            def parameterModel = new Parameters(
+                    env.SONAR_SERVER_URL,
+                    env.SONAR_SCANNER_PATH,
+                    'sqp_5a70f9ae87771a7fe959d1df084fb8e45a8b4b68',
+                    env.JOB_NAME,
+                    env.WORKSPACE,
+                    env.DCK_ACCOUNT_ID,
+                    env.DCK_REPOSITORY,
+                    gitHubTools.getRevision()
+            )
+
+            println("GITHASH: ${gitHubTools.getRevision()}")
+
+        }
 
         switch (params.package_manager){
             case "npm":
