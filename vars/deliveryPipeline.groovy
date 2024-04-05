@@ -45,8 +45,6 @@ def call(body) {
                 gitHubTools.getRevision()
         )
 
-        println("BRANCH: ${this.scm.branches}")
-        println("PARAMETERS: ${parameterModel.dckAccountId} , ${parameterModel.dckRepository}, ${parameterModel.projectName} , ${parameterModel.workspaceJob}, ${parameterModel.tagHash}")
         println("GITHASH: ${gitHubTools.getRevision()}")
 
         switch (params.package_manager){
