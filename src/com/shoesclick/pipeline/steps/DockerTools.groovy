@@ -34,7 +34,7 @@ class DockerTools {
     }
 
     def createTag(Parameters model){
-        systemCmd.cmd("docker tag \$(docker images ${model.projectName} | awk 'NR > 1 { print \$3 }' ) ${model.dckAccountId}/${model.dckRepository}:${model.projectName}-${model.tagHash}")
+        systemCmd.cmd("docker tag \$(docker images ${model.projectName} | awk \"NR > 1 { print \$3 }\" ) ${model.dckAccountId}/${model.dckRepository}:${model.projectName}-${model.tagHash}")
     }
 
     def pushImage(Parameters model){
