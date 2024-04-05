@@ -89,31 +89,42 @@ Definir:
 
 ## Salvar.
 
+## Criando um Token de usuário para utilziar o Jenkins Cli:
+
+No usuario logado vá em  <seu usuario> >> Configure
+
+Passe de API >> Adicionar novo Passe
+
+DEfina um Nome e clique em "Gerar"
+
+Salvar
+
+
 ## Criando os jobs utilizando o Jenkins Cli:
 
 Importante: Execute os jobs onde se encontram os arquivos xml (diretório jenkins)
             Se o jenkins-cli não tiver no diretorio, defina o caminho completo
 
 ```
-java -jar jenkins-cli.jar -s http://server create-job provider--shoesclick-login < provider--shoesclick-login.xml
+java -jar jenkins-cli.jar -s http://server create-job provider--shoesclick-login -auth <NomeGerado>:<TOKEN> < provider--shoesclick-login.xml
 
-java -jar jenkins-cli.jar -s http://server create-job server--config-service < server--config-service.xml
+java -jar jenkins-cli.jar -s http://server create-job server--config-service -auth <NomeGerado>:<TOKEN>  < server--config-service.xml
 
-java -jar jenkins-cli.jar -s http://server create-job server--discovery-stack < server--discovery-stack.xml
+java -jar jenkins-cli.jar -s http://server create-job server--discovery-stack -auth <NomeGerado>:<TOKEN>  < server--discovery-stack.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--customer < api--customer.xml
+java -jar jenkins-cli.jar -s http://server create-job api--customer -auth <NomeGerado>:<TOKEN>  < api--customer.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--customer < api--customer.xml
+java -jar jenkins-cli.jar -s http://server create-job api--customer -auth <NomeGerado>:<TOKEN>  < api--customer.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--product < api--product.xml
+java -jar jenkins-cli.jar -s http://server create-job api--product -auth <NomeGerado>:<TOKEN>  < api--product.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--order < api--order.xml
+java -jar jenkins-cli.jar -s http://server create-job api--order -auth <NomeGerado>:<TOKEN>  < api--order.xml
 
-java -jar jenkins-cli.jar -s http://server create-job service--notification < service--notification.xml
+java -jar jenkins-cli.jar -s http://server create-job service--notification -auth <NomeGerado>:<TOKEN>  < service--notification.xml
 
-java -jar jenkins-cli.jar -s http://server create-job service--payment < service--payment.xml
+java -jar jenkins-cli.jar -s http://server create-job service--payment -auth <NomeGerado>:<TOKEN>  < service--payment.xml
 
-java -jar jenkins-cli.jar -s http://server create-job bff--site-shoes < bff--site-shoes.xml
+java -jar jenkins-cli.jar -s http://server create-job bff--site-shoes -auth <NomeGerado>:<TOKEN>  < bff--site-shoes.xml
 
 ```
 
