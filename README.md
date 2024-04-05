@@ -92,6 +92,7 @@ Definir:
 ## Criando os jobs utilizando o Jenkins Cli:
 
 Importante: Execute os jobs onde se encontram os arquivos xml (diretório jenkins)
+            Se o jenkins-cli não tiver no diretorio, defina o caminho completo
 
 ```
 java -jar jenkins-cli.jar -s http://server create-job provider--shoesclick-login < provider--shoesclick-login.xml
