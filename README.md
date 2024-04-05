@@ -2,6 +2,31 @@
 
 Projeto em Grovvy para executar pipeline de apis:
 
+### Pré requisitos
+
+```
+Jenkins: (https://www.jenkins.io/download/)
+
+Java 17 : ([https://www.oracle.com/br/java/technologies/javase/jdk17-archive-downloads.html]);
+
+Maven 3.9.5: (https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz)
+
+Node: v18.15. (https://nodejs.org/en/)
+
+Python: (https://www.python.org/downloads/)
+
+Golang: (https://go.dev/dl/)
+
+Docker: (https://www.docker.com/products/docker-desktop/)
+
+Kubernetes: (https://kubernetes.io/releases/download/)
+
+GWAK (https://gnuwin32.sourceforge.net/packages/gawk.htm) - Somente para Windows
+```
+
+OBS: O Docker desktop já vem com o Kubernetes instalado.
+     Configurar variaveis de Ambiente para o Java, Maven e Gawk
+
 ## Estrutura:
 
 ```
@@ -20,31 +45,42 @@ Compila e testa o projeto
 
 Gera uma imagem no Docker
 
-efetua um Push no ECR.
+efetua um Push no No repositório de imagem.
 
-Efetua deploy no EKS.
+Efetua deploy no Kubernetes.
 
 ```
 
 ## Configuração:
 
+#### Gerenciar Jenkins >> Credentials >> System >> Global credentials (unrestricted)
 
-```
-Gerenciar Jenkins >> Configurar Sistema >> Global Pipeline Libraries
+Definir:
 
-Definir o nome: ex: jenkinspipelinelib - Será utilizado para importar no arquivo Jenkinsfile
+* **Scope: Global**
+* **ID: <definir um id ex: Github-dev>**
+* **Username: git**
+* **Username: git**
+* **Private Key: <Inserir private key SSH> "**
 
-```
 
-## EX: 
+#### Gerenciar Jenkins >> Configurar Sistema (System) >> Global Pipeline Libraries
 
-```
-@Library('jenkinspipelinelib') _
-```
+Definir:
 
-## Definir o link do projeto no github (necessário configurar ssh)
+* **Name: jenkinspipelinelib - Será utilizado para importar no arquivo Jenkinsfile**
+* **Default version: master - branch do projeto**
+* **Retrieval method: Modern SCM**
+* **Source Code Management: Git**
+* **Project Repository: git@github.com:shoesclick/pipeline--jenkins-shoesclick-stack.git - Utilzando o SSH**
+* **Credential: git**
 
-## Definir a Branch - master
+#### Gerenciar Jenkins >> Configurar Sistema (System) >> Propriedades globais
+
+Definir:
+
+* **Name/Value: DCK_ACCOUNT_ID = <accountid do dockerhub ou repositório de imagem>**
+* **Name/Value: DCK_REPOSITORY = <repositório de imagem>**
 
 ## Salvar.
 
