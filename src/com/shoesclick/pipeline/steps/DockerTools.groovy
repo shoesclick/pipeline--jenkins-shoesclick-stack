@@ -21,7 +21,7 @@ class DockerTools {
 
     def removeImagesDocker(Parameters model){
         systemCmd.steps().stage('Finish') {
-            systemCmd.cmd("docker rmi \$(docker images ${model.projectName} | awk 'NR > 1 { print \$3 }' ) --force")
+            systemCmd.cmd("docker rmi ${getImageId(model)} --force")
         }
     }
 
@@ -34,11 +34,15 @@ class DockerTools {
     }
 
     def createTag(Parameters model){
-        systemCmd.cmd("docker tag \$(docker images ${model.projectName} | awk \"NR > 1 { print \$3 }\" ) ${model.dckAccountId}/${model.dckRepository}:${model.projectName}-${model.tagHash}")
+        systemCmd.cmd("docker tag ${getImageId(model)} ${model.dckAccountId}/${model.dckRepository}:${model.projectName}-${model.tagHash}")
     }
 
     def pushImage(Parameters model){
         systemCmd.cmd("docker push ${model.dckAccountId}/${model.dckRepository}:${model.projectName}-${model.tagHash}")
+    }
+
+    def getImageId(Parameters model){
+        return  systemCmd.cmdReturn("docker images ${model.projectName} | awk \'NR > 1 { print \$3 } \' ")
     }
 
 
