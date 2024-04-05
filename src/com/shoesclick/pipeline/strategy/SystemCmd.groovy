@@ -4,6 +4,8 @@ interface SystemCmd {
 
     def cmd(command)
 
+    def cmdReturn(command)
+
     def steps()
 
 }

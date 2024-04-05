@@ -10,6 +10,10 @@ class WinCmd implements SystemCmd {
         steps.bat(command)
     }
 
+    def cmdReturn(command) {
+        return steps.bat(returnStdout: true, script: "${command}" )
+    }
+
     def steps(){
        return steps
     }

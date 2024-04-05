@@ -9,6 +9,10 @@ class LinuxCmd implements SystemCmd {
         steps.sh(command)
     }
 
+    def cmdReturn(command) {
+        return steps.sh(script: "${command}", returnStdout: true)
+    }
+
     def steps() {
         return steps
     }

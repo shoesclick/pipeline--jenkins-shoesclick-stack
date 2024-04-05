@@ -25,6 +25,6 @@ class GitHubTools {
     }
 
     def getRevision() {
-        return systemCmd.cmd(script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+        return systemCmd.cmdReturn("git log -n 1 --pretty=format:'%H'")
     }
 }
