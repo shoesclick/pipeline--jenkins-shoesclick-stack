@@ -34,24 +34,23 @@ def call(body) {
 
         gitHubTools.checkoutSCM()
 
-        script {
+        def revision = gitHubTools.getRevision()
 
-            def parameterModel = new Parameters(
-                    env.SONAR_SERVER_URL,
-                    env.SONAR_SCANNER_PATH,
-                    'sqp_5a70f9ae87771a7fe959d1df084fb8e45a8b4b68',
-                    env.JOB_NAME,
-                    env.WORKSPACE,
-                    env.DCK_ACCOUNT_ID,
-                    env.DCK_REPOSITORY,
-                    gitHubTools.getRevision()
-            )
+        def parameterModel = new Parameters(
+                env.SONAR_SERVER_URL,
+                env.SONAR_SCANNER_PATH,
+                'sqp_5a70f9ae87771a7fe959d1df084fb8e45a8b4b68',
+                env.JOB_NAME,
+                env.WORKSPACE,
+                env.DCK_ACCOUNT_ID,
+                env.DCK_REPOSITORY,
+                revision
+        )
 
-            println("GITHASH: ${gitHubTools.getRevision()}")
 
-        }
+        println("revision: ${revision}")
 
-        switch (params.package_manager){
+        switch (params.package_manager) {
             case "npm":
                 def npmTools = new NpmTools(sysCmd)
                 npmTools.install()
@@ -82,7 +81,7 @@ def call(body) {
 
         }
 
-       // sonarTools.scanProject(parameterModel)
+        // sonarTools.scanProject(parameterModel)
         dockerTools.build(parameterModel)
         kubernatesTools.deployEKS(parameterModel)
         dockerTools.removeImagesDocker(parameterModel)
