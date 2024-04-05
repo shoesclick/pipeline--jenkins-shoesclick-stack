@@ -7,6 +7,8 @@ Projeto em Grovvy para executar pipeline de apis:
 ```
 Jenkins: (https://www.jenkins.io/download/)
 
+Jenkins cli: (<SUA URL DO JENKINS>/jnlpJars/jenkins-cli.jar)
+
 Java 17 : ([https://www.oracle.com/br/java/technologies/javase/jdk17-archive-downloads.html]);
 
 Maven 3.9.5: (https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz)
@@ -60,8 +62,11 @@ Definir:
 * **Scope: Global**
 * **ID: <definir um id ex: Github-dev>**
 * **Username: git**
-* **Username: git**
 * **Private Key: <Inserir private key SSH> "**
+
+#### Gerenciar Jenkins >> Credentials >> Users
+
+Definir:
 
 
 #### Gerenciar Jenkins >> Configurar Sistema (System) >> Global Pipeline Libraries
@@ -83,5 +88,35 @@ Definir:
 * **Name/Value: DCK_REPOSITORY = <repositório de imagem>**
 
 ## Salvar.
+
+## Criando os jobs utilizando o Jenkins Cli:
+
+Importante: Execute os jobs onde se encontram os arquivos xml (diretório jenkins)
+
+```
+java -jar jenkins-cli.jar -s http://server create-job provider--shoesclick-login < provider--shoesclick-login.xml
+
+java -jar jenkins-cli.jar -s http://server create-job server--config-service < server--config-service.xml
+
+java -jar jenkins-cli.jar -s http://server create-job server--discovery-stack < server--discovery-stack.xml
+
+java -jar jenkins-cli.jar -s http://server create-job api--customer < api--customer.xml
+
+java -jar jenkins-cli.jar -s http://server create-job api--customer < api--customer.xml
+
+java -jar jenkins-cli.jar -s http://server create-job api--product < api--product.xml
+
+java -jar jenkins-cli.jar -s http://server create-job api--order < api--order.xml
+
+java -jar jenkins-cli.jar -s http://server create-job service--notification < service--notification.xml
+
+java -jar jenkins-cli.jar -s http://server create-job service--payment < service--payment.xml
+
+java -jar jenkins-cli.jar -s http://server create-job bff--site-shoes < bff--site-shoes.xml
+
+```
+
+
+Referencia: (<SUA URL DO JENKINS>/jnlpJars/jenkins-cli.jar)
 
 
