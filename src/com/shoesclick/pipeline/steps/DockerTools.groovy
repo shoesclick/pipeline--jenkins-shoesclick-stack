@@ -42,7 +42,7 @@ class DockerTools {
     }
 
     def getImageId(Parameters model){
-        return  systemCmd.cmdReturn("docker images ${model.projectName} | awk \'NR > 1 { print \$3 } \' ")
+        return  systemCmd.cmdReturn("docker images ${model.projectName} | awk \'NR \\> 1 { print \$3 } \' ")
     }
 
 
