@@ -103,28 +103,27 @@ Salvar
 ## Criando os jobs utilizando o Jenkins Cli:
 
 Importante: Execute os jobs onde se encontram os arquivos xml (diretório jenkins)
+            Ou defina o caminho completo do arquivo xml
             Se o jenkins-cli não tiver no diretorio, defina o caminho completo
 
 ```
-java -jar jenkins-cli.jar -s http://server create-job provider--shoesclick-login -auth <NomeGerado>:<TOKEN> < provider--shoesclick-login.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job provider--shoesclick-login < provider--shoesclick-login.xml
 
-java -jar jenkins-cli.jar -s http://server create-job server--config-service -auth <NomeGerado>:<TOKEN>  < server--config-service.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job server--config-service < server--config-service.xml
 
-java -jar jenkins-cli.jar -s http://server create-job server--discovery-stack -auth <NomeGerado>:<TOKEN>  < server--discovery-stack.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job server--discovery-stack < server--discovery-stack.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--customer -auth <NomeGerado>:<TOKEN>  < api--customer.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job api--customer < api--customer.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--customer -auth <NomeGerado>:<TOKEN>  < api--customer.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job api--product < api--product.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--product -auth <NomeGerado>:<TOKEN>  < api--product.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job api--order < api--order.xml
 
-java -jar jenkins-cli.jar -s http://server create-job api--order -auth <NomeGerado>:<TOKEN>  < api--order.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job service--notification < service--notification.xml
 
-java -jar jenkins-cli.jar -s http://server create-job service--notification -auth <NomeGerado>:<TOKEN>  < service--notification.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job service--payment < service--payment.xml
 
-java -jar jenkins-cli.jar -s http://server create-job service--payment -auth <NomeGerado>:<TOKEN>  < service--payment.xml
-
-java -jar jenkins-cli.jar -s http://server create-job bff--site-shoes -auth <NomeGerado>:<TOKEN>  < bff--site-shoes.xml
+java -jar <CAMINHO_DO_JAR>/jenkins-cli.jar -s http://<URL_JENKINS> -auth <USUARIO_TOKEN>:<TOKEN_GERADO> create-job bff--site-shoes < bff--site-shoes.xml
 
 ```
 
