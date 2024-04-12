@@ -83,7 +83,7 @@ def call(body) {
 
         // sonarTools.scanProject(parameterModel)
         dockerTools.build(parameterModel)
-        kubernatesTools.deployEKS(parameterModel)
+        kubernatesTools.deployK8s(parameterModel)
         dockerTools.removeImagesDocker(parameterModel)
 
     }

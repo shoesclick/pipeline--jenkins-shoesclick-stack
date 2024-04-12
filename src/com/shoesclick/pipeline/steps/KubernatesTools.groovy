@@ -10,7 +10,7 @@ class KubernatesTools {
 
     KubernatesTools(SystemCmd systemCmd) { this.systemCmd = systemCmd }
 
-    def deployEKS(Parameters model) {
+    def deployK8s(Parameters model) {
         systemCmd.steps().stage('Deploy') {
             replaceDeploymentFile(model)
             systemCmd.steps().dir("k8s") {
