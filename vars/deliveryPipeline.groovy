@@ -15,7 +15,7 @@ def call(body) {
 
     def params = [:]
 
-
+    println("System Operation: ${env.SYSTEM_OPERATION}")
     def sysCmd;
     switch (env.SYSTEM_OPERATION) {
         case "Windows":
