@@ -86,6 +86,7 @@ Definir:
 
 * **Name/Value: DCK_ACCOUNT_ID = <accountid do dockerhub ou repositório de imagem>**
 * **Name/Value: DCK_REPOSITORY = <repositório de imagem>**
+* **Name/Value: SYSTEM_OPERATION = <sistema operacional: "Windows" ou "Linux">**
 
 ## Salvar.
 
