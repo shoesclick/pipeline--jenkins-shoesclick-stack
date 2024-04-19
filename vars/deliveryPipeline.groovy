@@ -8,13 +8,27 @@ import com.shoesclick.pipeline.steps.DockerTools
 import com.shoesclick.pipeline.steps.SonarTools
 import com.shoesclick.pipeline.steps.KubernatesTools
 import com.shoesclick.pipeline.model.Parameters
+import com.shoesclick.pipeline.strategy.LinuxCmd
 import com.shoesclick.pipeline.strategy.WinCmd
 
 def call(body) {
 
     def params = [:]
 
-    def sysCmd = new WinCmd(this)
+
+    def sysCmd;
+    switch (env.SYSTEM_OPERATION) {
+        case "Windows":
+            sysCmd = new WinCmd(this)
+            break
+        case "Linux":
+            sysCmd = new LinuxCmd(this)
+            break
+        default:
+            currentBuild.result = 'FAILURE'
+            error('deliveryPipeline => Missing required env: SYSTEM_OPERATION\n')
+    }
+
 
     def gitHubTools = new GitHubTools(sysCmd)
     def dockerTools = new DockerTools(sysCmd)
